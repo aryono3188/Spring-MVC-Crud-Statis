@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" th:href="@{/css/guru.css}" />
+  <title>Spring MVC Crud Statis</title>
+</head>
+
+<body>
+  <!-- awal dari halaman web -->
+  <div id="wrap">
+    <div id="header">
+      <!-- <%--awal header--%> -->
+      <!-- <img src="../image/tut_wuri_handayani_1.png"> -->
+      <img th:src="@{/image/logo_sms31.png}" class="img1">
+      <img th:src="@{/image/logo_sms31.png}" class="img2">
+        <h1>Belajar Spring Boot</h1>
+        <h1>Model View Controller (MVC)</h1>
+        <h1>CRUD data statis</h1>
+    </div><!-- <%--akhir dari header--%> -->
+    <div id="content">
+      <!-- <%-- awal dari isi content --%> -->
+      <br>
+      <a class="btn btn-add" th:href="@{'/add'}">Add Guru</a>
+      <br>
+      <br>
+      <div class="container">
+        <table class="table">
+          <thead>
+            <tr>
+              <th>NIP</th>
+              <th>Nama Guru</th>
+              <th>Jenis Kelamin</th>
+              <th>Password</th>
+              <th>Wali Kelas</th>
+              <th>Alamat</th>
+              <th>Nomor Telepon</th>
+              <th>Action</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr th:each="Guru : ${guruu}">
+              <td th:text="${Guru.nip}"></td>
+              <td th:text="${Guru.name}"></td>
+              <td th:text="${Guru.Kelamin}"></td>
+              <td th:text="${Guru.pass}"></td>
+              <td th:text="${Guru.walikelas}"></td>
+              <td th:text="${Guru.alamat}"></td>
+              <td th:text="${Guru.telepon}"></td>
+
+              <td>
+                <a class="btn btn-success" th:href="@{'/edit/'+ ${Guru.nip}}">Edit</a>
+                <a class="btn btn-danger" th:href="@{'/delete/'+ ${Guru.nip}}">Delete</a>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <div class="footer">
+        <!-- <%--awal dari content footer web --%> -->
+        support by <a href="">Junior Programmer Alumnus Program Study Komputerisasi Akuntansi BSI MARGONDA
+          DEPOK</a>,
+        <a href="">Copyright &copy; 8 February 2023 by Haryono. – All Right Reserved</a>
+        <br>
+        <p id="demo"></p>
+        <script src="" th:src="@{/js/date.js}"></script>
+      </div>
+      <div style="clear:both;">
+      </div>
+    </div>
+    <!-- <%--akhir dari isi content --%> -->
+  </div>
+  <!-- <%--akhir dari halaman web --%> -->
+</body>
+
+</html>
